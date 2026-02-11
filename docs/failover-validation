@@ -1,0 +1,98 @@
+# Domain Controller Redundancy & Failover Validation
+
+## Objective
+
+Validate that Active Directory authentication, DNS resolution, and domain join functionality remain operational during a simulated primary domain controller outage.
+
+---
+
+## Environment
+
+- Hypervisor: Proxmox VE
+- Firewall: pfSense
+- Domain: corp.local
+- DC1: 10.0.20.10
+- DC2: 10.0.20.11
+- Client VLAN: 10.0.10.0/24
+- Server VLAN: 10.0.20.0/24
+
+---
+
+## Pre-Failover Validation
+
+### Replication Health
+
+Executed on DC2:
+
+repadmin /replsummary  
+repadmin /showrepl  
+
+Result:
+- No replication failures
+- Successful inbound and outbound replication
+
+---
+
+### SYSVOL Verification
+
+Confirmed:
+C:\Windows\SYSVOL\sysvol
+
+- Policies replicated successfully
+- SYSVOL share accessible
+
+---
+
+### DNS Verification
+
+Validated:
+- Forward lookup zone for corp.local
+- _msdcs SRV records present
+- DC2 registered as Global Catalog
+
+---
+
+## Controlled Outage Simulation
+
+1. Powered off DC1 using Proxmox.
+2. Verified client authentication remained functional.
+3. Confirmed logon server:
+
+echo %logonserver%
+
+Result:
+Returned \\DC2
+
+4. Verified domain controller discovery:
+
+nltest /dsgetdc:corp.local
+
+Result:
+DC2 identified as active domain controller.
+
+5. Successfully joined additional client to domain during DC1 outage.
+
+---
+
+## Post-Restoration Validation
+
+- Powered DC1 back on.
+- Confirmed replication resumed successfully.
+- Re-ran replication health checks.
+
+---
+
+## Outcome
+
+- Authentication remained operational during primary DC outage.
+- DNS resolution remained functional.
+- Domain join operations succeeded.
+- Replication integrity preserved after restoration.
+
+---
+
+## Key Observations
+
+- Active Directory relies on DNS SRV records for controller discovery.
+- Replication health must be validated before failover simulation.
+- Redundant domain controllers provide critical identity service continuity.

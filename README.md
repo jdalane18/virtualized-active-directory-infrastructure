@@ -1,4 +1,4 @@
-# Virtualized Active Directory Infrastructure on Proxmox VE
+# IT Infrastructure & Virtualization Project on Proxmox VE
 
 ## Project Overview
 

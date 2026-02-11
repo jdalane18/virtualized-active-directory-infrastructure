@@ -1,0 +1,42 @@
+# Troubleshooting Scenarios
+
+## Scenario 1 – DNS Misconfiguration
+
+Symptom:
+Client unable to join domain.
+
+Root Cause:
+Incorrect DNS server configured on client.
+
+Resolution:
+Set client DNS to domain controller IP.
+Validated via:
+nslookup corp.local
+
+---
+
+## Scenario 2 – Primary Domain Controller Failure
+
+Symptom:
+DC1 powered off.
+
+Action:
+Validated replication health before outage.
+Tested authentication and domain join via DC2.
+
+Result:
+Authentication remained operational.
+
+---
+
+## Scenario 3 – DHCP Relay Misconfiguration
+
+Symptom:
+Client not receiving IP address.
+
+Root Cause:
+Incorrect relay target IP on pfSense.
+
+Resolution:
+Corrected relay configuration.
+Validated lease acquisition from AD DHCP server.

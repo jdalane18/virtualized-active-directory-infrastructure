@@ -1,14 +1,13 @@
-# Screenshots
+# Validation Evidence
 
-This folder contains validation evidence for infrastructure configuration and failover testing.
+This folder contains validation screenshots supporting infrastructure configuration and failover testing.
 
-## Included Proof:
+Included Evidence:
 
-- Replication summary output
-- Domain controller failover authentication
+- Replication health verification (repadmin output)
+- Authentication via secondary domain controller
+- Domain join during primary controller outage
 - pfSense VLAN interface configuration
 - DHCP relay configuration
-- Successful domain join validation
 
-Screenshots serve as operational evidence of service continuity during controlled outage testing.
-
+Screenshots provide operational proof of redundancy and segmentation validation.

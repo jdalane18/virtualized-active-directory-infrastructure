@@ -1,1 +1,17 @@
+# Network Topology Diagram
+
+The network diagram illustrates the segmented virtual infrastructure deployed on Proxmox VE.
+
+Diagram Includes:
+
+- Proxmox VE host
+- pfSense virtual firewall/router
+- WAN connection to home network
+- VLAN 10 (Client Network)
+- VLAN 20 (Domain Controller Network)
+- DC1 and DC2 placement
+- Windows 10 client placement
+- Lubuntu client placement
+
+The diagram reflects enterprise-style network segmentation and identity service redundancy.
 

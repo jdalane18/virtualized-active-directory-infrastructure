@@ -1,34 +1,17 @@
-#!/bin/bash
+# Scripts
 
-# --- CONFIGURATION ---
-SMTP_SERVER="smtp.gmail.com"
-SMTP_PORT="587"
-SMTP_USER="josephmdalane@gmail.com"
-SMTP_PASS="xxxx xxxx xxxx xxxx" # 16-character app password
-TO_EMAIL="josephmdalane@gmail.com"
-HOSTNAME=$(hostname)
+This folder contains lightweight automation scripts used within the Proxmox infrastructure environment.
 
-# --- THRESHOLDS ---
-RAM_THRESHOLD=90
-DISK_THRESHOLD=90
+## host-resource-monitor.sh
 
-# --- CHECKS ---
-RAM_USAGE=$(free | grep Mem | awk '{print $3/$2 * 100.0}' | cut -d. -f1)
-DISK_USAGE=$(df / | grep / | awk '{ print $5 }' | sed 's/%//g')
+Monitors CPU and memory utilization on the Proxmox host.
 
-# --- SEND EMAIL VIA CURL ---
-if [ "$RAM_USAGE" -gt "$RAM_THRESHOLD" ] || [ "$DISK_USAGE" -gt "$DISK_THRESHOLD" ]; >
-    SUBJECT="Proxmox-Lab Alert: $HOSTNAME Resource Spike"
-    BODY="High usage detected!\nRAM: $RAM_USAGE%\nSSD: $DISK_USAGE%"
-    
-    # Construct the raw email format
-    EMAIL_DATA="Subject: $SUBJECT\nFrom: $SMTP_USER\nTo: $TO_EMAIL\n\n$BODY"
+### Functionality:
+- Captures CPU usage via `top`
+- Captures memory usage via `free`
+- Logs threshold violations
+- Sends email alerts when usage exceeds defined thresholds
 
-    # The actual curl command that bypasses Postfix
-    echo -e "$EMAIL_DATA" | curl --url "smtp://$SMTP_SERVER:$SMTP_PORT" \
-      --ssl-reqd \
-      --mail-from "$SMTP_USER" \
-      --mail-rcpt "$TO_EMAIL" \
-      --user "$SMTP_USER:$SMTP_PASS" \
-      --upload-file -
-fi
+### Operational Purpose:
+Simulates proactive infrastructure monitoring.
+

@@ -1,0 +1,38 @@
+# Network Design Overview
+
+## Design Objectives
+
+- Implement VLAN-based segmentation between client and server networks
+- Prevent lab environment exposure to home network
+- Centralize routing and firewall control
+- Support DHCP relay to centralized identity services
+
+---
+
+## VLAN Structure
+
+| VLAN | Purpose | Subnet |
+|------|---------|--------|
+| VLAN 1  | pfSense| 10.0.0.0/24
+| VLAN 10 | Client Systems | 10.0.10.0/24 |
+| VLAN 20 | Domain Controllers | 10.0.20.0/24 |
+
+---
+
+## Routing & Firewall Design
+
+- pfSense deployed as virtual router/firewall
+- WAN interface connected to home network
+- NAT prevents lab exposure
+- Firewall rules restrict unnecessary east-west traffic
+- DHCP relay forwards client requests to domain controller
+
+---
+
+## Identity Placement Strategy
+
+Domain controllers placed in isolated VLAN 20 to:
+
+- Reduce attack surface
+- Control access via firewall rules
+- Simulate network segmentation practices

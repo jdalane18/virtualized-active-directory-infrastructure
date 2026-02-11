@@ -1,1 +1,14 @@
+# Screenshots
+
+This folder contains validation evidence for infrastructure configuration and failover testing.
+
+## Included Proof:
+
+- Replication summary output
+- Domain controller failover authentication
+- pfSense VLAN interface configuration
+- DHCP relay configuration
+- Successful domain join validation
+
+Screenshots serve as operational evidence of service continuity during controlled outage testing.
 

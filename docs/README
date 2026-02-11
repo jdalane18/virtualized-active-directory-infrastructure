@@ -1,1 +1,56 @@
 
+# Documentation
+
+This folder contains detailed technical documentation supporting the virtualized Active Directory infrastructure project.
+
+The purpose of this documentation is to provide validation evidence, architectural reasoning, and troubleshooting methodology consistent with infrastructure and data center operational practices.
+
+---
+
+## Included Documents
+
+### failover-validation.md
+Detailed documentation of Active Directory redundancy implementation and controlled domain controller failover testing.
+
+Includes:
+- Replication health validation
+- SYSVOL verification
+- DNS SRV record confirmation
+- Controlled outage simulation
+- Authentication continuity testing
+
+---
+
+### network-design.md
+Overview of VLAN segmentation, routing strategy, and firewall policy implementation.
+
+Includes:
+- VLAN layout and purpose
+- DHCP relay logic
+- NAT isolation design
+- Identity service placement strategy
+
+---
+
+### troubleshooting-scenarios.md
+Documented failure scenarios and diagnostic steps.
+
+Includes:
+- DNS misconfiguration testing
+- Domain controller outage validation
+- DHCP relay troubleshooting
+- Command-line diagnostic tools used
+
+---
+
+## Documentation Philosophy
+
+All documentation emphasizes:
+
+- Infrastructure resiliency
+- Service continuity validation
+- Operational testing
+- Network segmentation design
+- Real-world troubleshooting methodology
+
+The goal is to demonstrate practical infrastructure engineering practices.

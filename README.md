@@ -79,11 +79,70 @@ Routing, firewall enforcement, and NAT handled by a pfSense virtual firewall.
 
 A secondary domain controller (DC2) was deployed to validate authentication continuity during primary controller outage.
 
-### Replication Validation
+Validation steps included:
 
-Commands executed on DC2:
+- Replication health verification:
+  repadmin /replsummary  
+  repadmin /showrepl  
+- SYSVOL replication confirmation  
+- DNS SRV record verification  
+- Controlled shutdown of DC1  
+- Client authentication validation via DC2  
+- Domain join test during DC1 outage  
 
-```powershell
-repadmin /replsummary
-repadmin /showrepl
+Authentication and DNS services remained fully operational during primary controller failure.
 
+Detailed validation process available in:
+docs/failover-validation.md
+
+---
+
+## Monitoring & Operational Controls
+
+A lightweight Bash script was implemented on the Proxmox host to:
+
+- Monitor CPU utilization
+- Monitor memory utilization
+- Trigger alerts when usage exceeds defined thresholds
+
+This simulates proactive infrastructure monitoring practices.
+
+---
+
+## Security & Isolation
+
+- VLAN segmentation separating client and server networks
+- Firewall rule enforcement via pfSense
+- NAT configuration preventing exposure to home LAN
+- Controlled domain join permissions
+
+---
+
+## Troubleshooting & Validation
+
+Scenarios tested:
+
+- DNS misconfiguration impact on domain join
+- DHCP relay misconfiguration
+- Domain controller outage simulation
+- Replication health verification
+- Logon server validation
+
+---
+
+## Skills Demonstrated
+
+- Type-1 hypervisor deployment and management
+- VLAN segmentation and virtual network design
+- Firewall rule configuration and NAT isolation
+- DHCP relay implementation
+- Active Directory deployment and replication validation
+- DNS dependency troubleshooting
+- Authentication failover testing
+- Infrastructure monitoring automation
+
+---
+
+## Operational Takeaway
+
+This lab demonstrates practical understanding of identity service redundancy, network segmentation, and infrastructure validation.

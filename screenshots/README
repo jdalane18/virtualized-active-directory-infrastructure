@@ -1,13 +1,43 @@
 # Validation Evidence
 
-This folder contains validation screenshots supporting infrastructure configuration and failover testing.
+This directory contains structured operational evidence supporting configuration and failover validation.
 
-Included Evidence:
+Screenshots are organized by validation category to clearly demonstrate infrastructure functionality.
 
-- Replication health verification (repadmin output)
-- Authentication via secondary domain controller
-- Domain join during primary controller outage
+---
+
+## replication/
+Contains evidence of Active Directory replication health validation.
+
+Examples:
+- repadmin /replsummary output
+- repadmin /showrepl output
+
+---
+
+## failover/
+Contains evidence of successful authentication during primary domain controller outage.
+
+Examples:
+- logon server output (echo %logonserver%)
+- nltest /dsgetdc results
+- Proxmox console showing DC1 powered off
+
+---
+
+## network/
+Contains evidence of network segmentation and firewall configuration.
+
+Examples:
 - pfSense VLAN interface configuration
 - DHCP relay configuration
+- Firewall rule screenshots
 
-Screenshots provide operational proof of redundancy and segmentation validation.
+---
+
+## domain/
+Contains evidence of domain join and identity service validation.
+
+Examples:
+- Successful domain join screen
+- Group Policy application proof

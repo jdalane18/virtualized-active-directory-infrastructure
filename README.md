@@ -4,7 +4,7 @@
 
 This project simulates an enterprise identity and network infrastructure environment deployed on a Proxmox VE Type-1 hypervisor. The lab implements VLAN segmentation, firewall isolation using pfSense, DHCP relay configuration, redundant domain controllers, and failover validation to demonstrate service resiliency and operational troubleshooting.
 
-The objective of this lab was to design and validate a segmented, redundant Active Directory environment while operating within constrained hardware resources (8GB RAM / 128GB SSD).
+The objective of this lab was to build a functional corporate environment featuring Active Directory, Automated Monitoring, and VLAN Segmentation.
 
 ---
 
@@ -20,6 +20,7 @@ The objective of this lab was to design and validate a segmented, redundant Acti
 
 | VLAN | Purpose | Subnet |
 |------|---------|--------|
+| VLAN 1  | pfSense | 10.0.0.0/24 |
 | VLAN 10 | Client Systems | 10.0.10.0/24 |
 | VLAN 20 | Domain Controllers | 10.0.20.0/24 |
 

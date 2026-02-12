@@ -2,6 +2,11 @@
 
 The network diagram illustrates the segmented virtual infrastructure deployed on Proxmox VE.
 
+## Network Topology
+
+![Network Topology](diagrams/network-topology.png)
+
+
 Diagram Includes:
 
 - Proxmox VE host

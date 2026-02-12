@@ -4,7 +4,7 @@ The network diagram illustrates the segmented virtual infrastructure deployed on
 
 ## Network Topology
 
-![Network Topology](diagrams/network-topology.png)
+[Network Topology](diagrams/network-topology.png)
 
 
 Diagram Includes:
@@ -18,5 +18,6 @@ Diagram Includes:
 - Windows 10 client placement
 - Lubuntu client placement
 
-The diagram reflects enterprise-style network segmentation and identity service redundancy.
+The architecture enforces logical segmentation between client and identity networks while centralizing routing and policy control through a virtualized firewall appliance.
+
 

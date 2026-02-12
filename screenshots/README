@@ -19,7 +19,6 @@ Examples:
 Contains evidence of successful authentication during primary domain controller outage.
 
 Examples:
-- logon server output (echo %logonserver%)
 - nltest /dsgetdc results
 - Proxmox console showing DC1 powered off
 

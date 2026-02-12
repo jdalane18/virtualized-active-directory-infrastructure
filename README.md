@@ -48,7 +48,7 @@ Routing, firewall enforcement, and NAT handled by a pfSense virtual firewall.
 
 ### Client Systems
 - Windows 10 VM (domain joined)
-- Lubuntu VM (network validation)
+- Lubuntu VM (domain joined)
 
 ---
 

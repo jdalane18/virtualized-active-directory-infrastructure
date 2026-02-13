@@ -1,1 +1,4 @@
+# Failover Validation Evidence
+
+This folder contains screenshots demonstrating successful Active Directory failover and authentication continuity during a simulated primary domain controller outage.
 
